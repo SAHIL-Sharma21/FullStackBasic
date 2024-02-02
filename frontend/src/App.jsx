@@ -1,10 +1,23 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './App.css'
+import axios from 'axios'; //importing axios
 
 function App() {
   
   //jokes states
   const[jokes, setJokes] = useState([]); //initially empty
+
+  //when our app load initially then we get the data instantaly so we use useEffect to do so
+  useEffect(() => {
+    //making axios web request
+    axios.get('http://localhost:3000/jokes')
+    .then((response) => {
+      setJokes(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }, []);
 
   return (
     <>
