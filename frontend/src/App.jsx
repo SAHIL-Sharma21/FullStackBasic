@@ -10,7 +10,7 @@ function App() {
   //when our app load initially then we get the data instantaly so we use useEffect to do so
   useEffect(() => {
     //making axios web request
-    axios.get('http://localhost:3000/jokes')
+    axios.get('/api/jokes') //http automatically get appended as we added proxy in the vite.config file and it will resolve cors error.
     .then((response) => {
       setJokes(response.data);
     })

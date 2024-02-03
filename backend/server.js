@@ -8,8 +8,9 @@ app.get('/', (req, res) => {
     res.send('Server is running');
 });
 
-//making joke api
-app.get("/jokes", (req, res) => {
+//making joke api 
+//standrize approach to write API's 
+app.get("/api/jokes", (req, res) => {
     const jokes = [
         {
             id: 1,
